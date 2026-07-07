@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ─── Header ─── */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Status Bar ─── */
+.status-bar {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+/* ─── Board ─── */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 280px;
+  margin: 0 auto 1.5rem;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cell:hover:not(.filled):not(.game-over-cell) {
+  background: #f0f0f0;
+  border-color: #bbb;
+}
+
+.cell.filled {
+  cursor: default;
+}
+
+.cell.x-cell {
+  color: #2563eb;
+}
+
+.cell.o-cell {
+  color: #16a34a;
+}
+
+.cell.winning-cell {
+  background: #fef9c3;
+  border-color: #facc15;
+}
+
+.cell.game-over-cell {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ─── Controls ─── */
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #ffffff;
+  color: #1a1a1a;
+  transition: background 0.1s;
+}
+
+button:hover {
+  background: #f5f5f5;
+}
+
+/* ─── Scoreboard ─── */
+.score-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  max-width: 280px;
+  margin: 0 auto 1.25rem;
+}
+
+.score-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 8px;
+}
+
+.score-label {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.score-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.score-value.x {
+  color: #2563eb;
+}
+
+.score-value.o {
+  color: #16a34a;
+}
+
+/* ─── History ─── */
+.history-section {
+  text-align: left;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.history-label {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 90px;
+  overflow-y: auto;
+}
+
+.history-item {
+  font-size: 12px;
+  color: #555;
+  background: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
